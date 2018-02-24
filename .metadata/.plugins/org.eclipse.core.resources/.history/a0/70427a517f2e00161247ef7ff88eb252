@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>여러개의 폼 제출 버튼 예제</title>
+</head>
+<body>
+    <form action="test.html">
+        <h1>여러개의 폼 제출 버튼 예제</h1>
+        <table summary="게시판 목록">
+            <thead>
+                <tr>
+                    <th>선택</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" title="1번글 선택"
+                         name="check1" value="Y" /></td>
+                    <td>게시판 제목1</td>
+                    <td>아무개</td>
+                    <td>2007년 10월 13일</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" title="2번글 선택"
+                         name="check2" value="Y" /></td>
+                    <td>게시판 제목2</td>
+                    <td>아무개</td>
+                    <td>2007년 10월 13일</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" title="3번글 선택"
+                         name="check3" value="Y" /></td>
+                    <td>게시판 제목3</td>
+                    <td>아무개</td>
+                    <td>2007년 10월 13일</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" title="4번글 선택"
+                         name="check4" value="Y" /></td>
+                    <td>게시판 제목4</td>
+                    <td>아무개</td>
+                    <td>2007년 10월 13일</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <input type="submit" name="delete_selected"
+                value="선택된 글 삭제" />
+            <input type="submit" name="move_selected"
+                value="선택된 글 이동" />
+        </p>
+    </form> 
+</body>
+</html>

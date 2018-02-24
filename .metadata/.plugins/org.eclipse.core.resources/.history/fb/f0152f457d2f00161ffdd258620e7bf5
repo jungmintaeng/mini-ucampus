@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>failed</title>
+</head>
+<body>
+<h1>로그인 실패!</h1>
+<p>돌아가기</p>
+<input type="submit" value="클릭"/>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;mail&apos; to &apos;ucam/src&apos;&#x0D;&#x0A;- Original project: &apos;mail&apos;&#x0D;&#x0A;- Destination element: &apos;ucam/src&apos;&#x0D;&#x0A;- Original element: &apos;mail/src/mail&apos;" description="Copy package" destination="=ucam/src" element1="/src&lt;mail" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1465725220344" version="1.0"/>
+</session>

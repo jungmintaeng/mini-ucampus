@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>강의자료실</title>
+</head>
+<body>
+	<%!
+Connection con = null; 
+Statement st = null; 
+ResultSet rs = null;
+String Course_name;
+int Note_num;
+String FileName;
+%>
+	<% 
+	try
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		con = DriverManager.getConnection("jdbc:mysql://localhost/ucampus", "root", "1234");
+	
+	if(con == null)
+		out.println("Mang.....");
+	
+	st = con.createStatement();
+	rs = st.executeQuery("select C.Course_name,L.Note_num,L.FileName from lecture_note AS L ,course AS C where C.Course_number = L.Course_num");
+	}
+	catch(SQLException ex)
+	{
+		out.println("<script>alert('sql err...');</script>");
+	}
+	catch(Exception ex)
+	{
+		out.println("<script>alert('what?...');</script>");
+	}
+	%>
+	<form action="Download.jsp">
+		<h1>강의자료실</h1>
+		<table summary="게시판 목록" border=50 align="center">
+			<thead>
+				<tr>
+					<th>Check</th>
+					<th>강의자료번호</th>
+					<th>강의명</th>
+					<th>파일명</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				while(rs.next())
+				{
+					Course_name = rs.getString(1);
+					Note_num = rs.getInt(2);
+					FileName = rs.getString(3);
+					out.println("<tr> <td><input type='radio' name='" + FileName + "' value='Y'></td> <td>" + Note_num + "</td><td>"+ Course_name +"</td><td>"+ FileName +"</td> </tr>");
+				}
+/* 
+				catch(Exception e){
+					out.println("<script>alert('output...');</script>");
+				}
+				finally{
+
+				} */
+				%>
+			</tbody>
+		</table>
+		<p>
+			<input type="submit" name="" value="선택된 파일 다운로드" /> <input
+				type="submit" name="upload" value="강의자료 업로드" />
+		</p>
+	</form>
+</body>
+</html>

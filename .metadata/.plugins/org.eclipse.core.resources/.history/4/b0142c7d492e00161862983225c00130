@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="uca">
+        <property name="context-root" value="uca"/>
+        <property name="java-output-path" value="/uca/build/classes"/>
+    </wb-module>
+</project-modules>

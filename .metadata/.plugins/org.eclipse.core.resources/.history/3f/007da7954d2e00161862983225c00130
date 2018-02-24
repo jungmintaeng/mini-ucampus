@@ -1,0 +1,67 @@
+<%@ page language = "java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import = "java.sql.*" %>
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type"content="text-html; charset="utf-8" />
+	<title>휴먼컴퓨터인터페이스</title>
+</head>
+<body>
+		<a href="#" class="upbutton-list" onclick="javascript:link1.href='style1.css'">css1</a>
+		<a href="#" class="upbutton-list" onclick="javascript:link1.href='style2.css'">css2</a>
+		<a href="#" class="upbutton-list" onclick="javascript:link1.href='style3.css'">css3</a>
+		
+	<br><br>
+	<canvas id='canvas' height='10' width='100'>
+	</canvas>
+	
+	<div id="head">
+	<h1>휴먼컴퓨터인터페이스<p>2014726030_최지혜</p></h1>
+	<h2><p2>||</p2>과제I<p2>||</p2> 기본 웹페이지 작성<h2>
+	</div>
+	<div id="buttons">
+	<hr></hr>
+		<a href="#" class="button-list" onclick="showhide('intro');return false;"><strong>서론</strong></a>
+		<a href="#" class="button-list" onclick="showhide('point');return false;"><strong>본문</strong></a>
+		<a href="#" class="button-list" onclick="showhide('conclusion');return false;"><strong>결론</strong></a>
+		<a href="#" class="button-list" onclick="showhide('resource');return false;"><strong>참고자료</strong></a>
+		<hr></hr>
+	</div>
+	
+
+<div id="intro">
+<h3>Ⅰ. 서론</h3>
+<h4>Ⅰ.Ⅰ 과제 내용 및 요구조건</h4>
+<p3>내용</p3>
+<hr></hr>
+</div>
+
+<div id="point">
+<h3>Ⅱ.본문</h3>
+<h4>Ⅱ.Ⅰ 수행 결과 및 수행과정</h4>
+<p3>내용</p3>
+<hr></hr>
+</div>
+
+<div id="conclusion">
+<h3>Ⅲ.결론</h3>
+<h4>Ⅲ.Ⅰ 결과에 대한 분석</h4>
+<p3>내용</p3>
+<hr></hr>
+</div>
+
+<div id="resource">
+<h3>Ⅳ.참고자료</h3>
+<p3>내용</p3>
+<hr></hr>
+</div>
+
+
+</div>
+
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

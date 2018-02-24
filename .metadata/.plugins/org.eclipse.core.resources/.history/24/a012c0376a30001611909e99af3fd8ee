@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "java.io.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+<title>강의계획서</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ANSI">
+
+</head>
+<body>
+<%!
+Connection con = null;
+Statement st = null; 
+ResultSet rs = null;
+byte[] buffer;
+String Course_num;
+Blob blob;
+File file;
+FileOutputStream fos;
+BufferedReader br;
+FileReader fr;
+String str = "";
+%>
+<% 
+	Course_num = request.getParameter("course");
+
+	try
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		con = DriverManager.getConnection("jdbc:mysql://localhost/ucampus", "root", "1234");
+	}
+	catch(SQLException ex)
+	{
+		out.println("<script>alert('connect err');</script>");
+	}
+	if(con == null)
+		out.println("<script>alert('connection X');</script>");
+	
+	try
+	{
+		st = con.createStatement();
+		rs = st.executeQuery("select Course_plan from course where Course_number = '" + Course_num + "'");
+	}
+	catch(SQLException ex)
+	{
+		out.println("<script>alert('sql err');</script>");
+	}
+	
+	if(rs == null)
+	{
+		out.println("<script>alert('query failed');</script>");
+		return;
+	}
+
+	try
+	{
+		if(rs.next())
+		{
+			blob = rs.getBlob("Course_plan");
+		}
+		
+		buffer = blob.getBytes(1, (int)blob.length());
+		
+		file = new File("C:\\Users\\Mike\\Desktop\\temp.txt");
+		file.createNewFile();
+		fos = new FileOutputStream(file);
+		fos.write(buffer);
+		fos.close();
+		
+		fr = new FileReader(file);
+		br = new BufferedReader(fr);
+		
+		while(str != null)
+		{
+			str = br.readLine();
+			if(str != null)
+				out.println(str);
+		}
+		
+		br.close();
+		fr.close();
+		
+		//file.delete();
+	}
+	catch(IOException ex)
+	{
+		out.println("<script>alert('stream err');</script>");
+	}
+	catch(Exception ex)
+	{
+		out.println("<script>alert('강의자료가 업로드 되었는지 확인하세요');</script>");
+	}
+%>
+
+<form action="MainStudent.jsp">
+<input type="submit" value="돌아가기"></input>
+</form>
+</body>
+</html>
